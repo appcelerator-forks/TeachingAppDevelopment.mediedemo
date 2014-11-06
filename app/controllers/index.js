@@ -6,6 +6,7 @@ function doClickUseCamera(e){
 			if(e.mediaType === Ti.Media.MEDIA_TYPE_PHOTO){
 				$.ivShowPic.image = e.media;
 			}else if(e.mediaType === Ti.Media.MEDIA_TYPE_VIDEO){
+				// TODO handle video on android
 				// create e new window to display the video in
 				var w = Ti.UI.createWindow({
 					title: "The Video",
