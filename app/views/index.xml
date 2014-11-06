@@ -1,0 +1,5 @@
+<Alloy>
+	<Window>
+		<Button bottom="2%">Use Camera</Button>
+	</Window>
+</Alloy>
