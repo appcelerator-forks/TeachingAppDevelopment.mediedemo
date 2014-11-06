@@ -1,5 +1,6 @@
 <Alloy>
-	<Window>
-		<Button bottom="2%">Use Camera</Button>
+	<Window id="win">
+		<ImageView id="ivShowPic" borderWidth="2" borderColor="black" zIndex="1" width="200" height="200" />
+		<Button zIndex="2" bottom="12" onClick="doClickUseCamera">Use Camera</Button>
 	</Window>
 </Alloy>
