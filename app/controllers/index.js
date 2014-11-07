@@ -51,9 +51,38 @@ function doClickUseCamera(e){
     	// allowEditing and mediaTypes are iOS-only settings
 		allowEditing:true,
 		mediaTypes:[Ti.Media.MEDIA_TYPE_VIDEO,Ti.Media.MEDIA_TYPE_PHOTO]
-		
 	});
+}
+
+// Record video on android
+
+var videourl = "";
+function doClickAndroidVideo(e){
+	var intent = Ti.Android.createIntent({action : 'android.media.action.VIDEO_CAPTURE'});
 	
+	$.win.activity.startActivityForResult(intent, function(e) {
+        if (e.resultCode == Ti.Android.RESULT_OK) {
+            if (e.intent.data != null) {
+                // If everything went OK, save a reference to the video URI
+                videourl = e.intent.data;
+                $.playButton.visible = true;
+    	    }
+            else {
+                Ti.API.error('Could not retrieve media URL!');
+            }
+        }
+        else if (e.resultCode == Ti.Android.RESULT_CANCELED) {
+            Ti.API.trace('User cancelled video capture session.');
+        }
+        else {
+            Ti.API.error('Could not record video!');
+        }
+    });
+}
+
+function doPlayBack(){
+    var player = Ti.Media.createVideoPlayer({ url: videourl, autoplay: true});
+    $.win.add(player);
 }
 
 $.win.open();

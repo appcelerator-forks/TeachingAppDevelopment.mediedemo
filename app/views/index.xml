@@ -1,6 +1,10 @@
 <Alloy>
 	<Window id="win">
-		<ImageView id="ivShowPic" borderWidth="2" borderColor="black" zIndex="1" width="200" height="200" />
-		<Button zIndex="2" bottom="12" onClick="doClickUseCamera">Use Camera</Button>
+		<ImageView id="ivShowPic" borderWidth="2" borderColor="black" zIndex="1" width="98%" />
+		<View bottom="12" layout="horizontal">
+			<Button zIndex="2" onClick="doClickUseCamera">Use Camera</Button>
+			<Button zIndex="2" onClick="doClickAndroidVideo">Use Video on Android</Button>
+			<Button id="playButton" visible="false" onClick="doPlayBack">Play back Video</Button>
+		</View>
 	</Window>
 </Alloy>
