@@ -4,6 +4,7 @@ function doClickUseCamera(e){
 	Ti.Media.showCamera({
 		success: function(e){
 			if(e.mediaType === Ti.Media.MEDIA_TYPE_PHOTO){
+				Ti.API.info(e.media.getNativePath());
 				$.ivShowPic.image = e.media;
 			}else if(e.mediaType === Ti.Media.MEDIA_TYPE_VIDEO){
 				// TODO handle video on android
